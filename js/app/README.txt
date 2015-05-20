@@ -1,0 +1,1 @@
+Please Add you JavaScript files here and reference it in the index page and pages that require them
