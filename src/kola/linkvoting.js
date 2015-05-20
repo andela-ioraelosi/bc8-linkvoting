@@ -21,7 +21,7 @@ var CategoryView = Backbone.View.extend({
 });
 
 var CategorysView = Backbone.View.extend({
-	model: categorys,
+	model: Categorys,
 	el: $('.categorys-list'),
 	initialize: function() {
 		this.model.on('add', this.render(), this);
