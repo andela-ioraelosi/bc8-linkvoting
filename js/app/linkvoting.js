@@ -6,7 +6,7 @@ $(document).ready(function() {
 var LinK = Backbone.Model.extend({
 	defaults: {
 		url: '',
-		category: 'Others'
+		category: ''
 	}
 });
 var Links = Backbone.Firebase.Collection.extend({
@@ -27,10 +27,6 @@ var LinkView = Backbone.View.extend({
 
 	initialize: function() {
     	this.template = _.template($('.link-titles-list-template').html());
-    	/*this.listenTo(this.model, 'add', this.edit);
-    	this.listenTo(this.model, 'add', this.update);
-    	this.listenTo(this.model, 'add', this.cancel);
-    	this.listenTo(this.model, 'add', this.deleteLink);*/
     },
 	
 	edit: function() {
@@ -85,9 +81,21 @@ var LinksView = Backbone.View.extend({
 
 	createLink: function () {
 		links.create({
-			url: $('.link-title-input').val(),
-			category: $('.category-input').val()
-		});
+			/*if ($('.link-title-input').val() == "" && $('.category-input').val() == "")
+				alert("Url can't be empty!!!");
+			else if ($('.category-input').val() == "") {
+				url: $('.link-title-input').val(),
+				category: "Others"
+			}
+			else {
+				url: $('.link-title-input').val(),
+				category: $('.category-input').val()
+			}
+			
+		});*/
+		url: $('.link-title-input').val(),
+		category: $('.category-input').val()
+		})
 		$('.link-title-input').val('');
 		$('.category-input').val('');
 	},
