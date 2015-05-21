@@ -1,9 +1,12 @@
-// Backbone Model
+
+
+$(document).ready(function() {
+	// Backbone Model
 
 var LinK = Backbone.Model.extend({
 	defaults: {
-		url: 'Others',
-		category: ''
+		url: '',
+		category: 'Others'
 	}
 });
 var Links = Backbone.Firebase.Collection.extend({
@@ -14,17 +17,17 @@ var links = new Links();
 
 
 var LinkView = Backbone.View.extend({
-	model: new LinK(),
 	tagName: 'tr',
-	initialize: function() {
-		this.template = _.template($('.link-titles-list-template').html());
-	},
 	events: {
 		'click .edit-link': 'edit',
 		'click .update-link': 'update',
 		'click .delete-link': 'delete',
 		'click .cancel': 'cancel'
 	},
+
+	initialize: function() {
+    	this.template = _.template($('.link-titles-list-template').html());
+    },
 	
 	edit: function() {
 		$('.edit-link').hide();
@@ -50,45 +53,46 @@ var LinkView = Backbone.View.extend({
 		this.model.destroy();
 	},
 	render: function() {
-		this.$el.html(this.template(this.model.toJSON()))
+		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	}
 });
 
 
 var LinksView = Backbone.View.extend({
-	model: links,
-	el: $('.link-titles-list'),
-	initialize: function() {
-		var self = this;
-		this.listenTo(this.model, "add", this.render);
-		
-		this.listenTo(this.model, "change", function() {
-			setTimeout(function() {
-				self.render();
-			}, 30);
-		});
-		this.listenTo(this.model, "remove", this.render);
+	el: $('#link-vote-app'),
+	events: {
+		'click #add-link': 'createLink'
 	},
-	render: function() {
-		var self = this;
-		this.$el.html('');
-		_.each(this.model.toArray(), function(link) {
-			self.$el.append((new LinkView({model: link})).render().$el);
-		});
-		return this;
-	}
-});
-var linksView = new LinksView();
 
-$(document).ready(function() {
-	$('.add-link').on('click', function() {
-		var link = new LinK({
+	initialize: function() {
+		this.listenTo(links, 'add', this.addOne);
+		// this.model.on('change', this.render, this);
+	},
+
+	addOne: function(link) {
+		var view = new LinkView({model: link});
+		this.$('.link-titles-list').append(view.render().el);
+	},
+
+	createLink: function () {
+		links.create({
 			url: $('.link-title-input').val(),
 			category: $('.category-input').val()
 		});
 		$('.link-title-input').val('');
 		$('.category-input').val('');
-		links.add(link);
-	})
-})
+	},
+
+	render: function() {
+		var self = this;
+		this.$el.html('');
+		_.each(links.toArray(), function(link) {
+			self.$el.append((new LinkView({model: link})).render().$el);
+		});
+		return this;
+	}
+});
+
+var linksView = new LinksView();
+});
