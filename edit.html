@@ -12,12 +12,6 @@
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
-
-        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
-        <script src="js/libs/modernizr.js"></script>
-        <script src="js/libs/underscore.js"></script>
-        <script src="js/libs/jquery-1.9.1.js"></script>
-        <script src="js/libs/backbone.js"></script>
     </head>
     <body>
         <header class="navbar navbar-fixed-top navbar-inverse">
@@ -34,7 +28,7 @@
 		<div class="container">
 			<h1>LINK VOTING CONFIGURATION</h1>
 			
-			<table class="table">
+			<table class="table" id="link-vote-app">
 				<thead>
 					<tr>
 						<th>Link Title</th>
@@ -43,7 +37,7 @@
 					<tr>
 						<td><input class="form control link-title-input"></td>
 						<td><input class="form control category-input"></td>
-						<td><button class="btn btn-primary add-link">Add</button></td>
+						<td><button class="btn btn-primary" id="add-link">Add</button></td>
 					</tr>
 				</thead>
 				<tbody class="link-titles-list"></tbody>
@@ -62,5 +56,13 @@
         	location.href = "index.html";
     		};
     	</script>
+
+        <script src="js/libs/modernizr.js"></script>
+        <script src="js/libs/jquery-1.9.1.js"></script>
+        <script src="js/libs/underscore.js"></script>
+        <script src="js/libs/backbone.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+    	<script src="https://cdn.firebase.com/libs/backbonefire/0.5.1/backbonefire.min.js"></script>
+    	<script src="js/app/linkvoting.js"></script>
   </body>
 </html>
