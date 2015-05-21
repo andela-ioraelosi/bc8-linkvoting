@@ -21,6 +21,7 @@
     </head>
     <body>
         <header class="navbar navbar-fixed-top navbar-inverse">
+            <button id="myButton" class="float-left submit-button" >Edit</button>
       <div class="container">
         <a href="#" id="logo">Link Voting</a>
         <nav>
@@ -45,5 +46,10 @@
         </div>
 
     </div>
+    <script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "edit.html";
+    };
+    </script>
   </body>
 </html>
