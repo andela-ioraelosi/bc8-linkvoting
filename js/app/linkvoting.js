@@ -6,7 +6,9 @@ $(document).ready(function() {
 	var LinK = Backbone.Model.extend({
 		defaults: {
 			url: '',
-			category: ''
+			category: '',
+			voteup: 0,
+			votedown: 0
 		}
 	});
 	var Links = Backbone.Firebase.Collection.extend({
@@ -77,8 +79,6 @@ $(document).ready(function() {
 		addOne: function(link) {
 			var view = new LinkView({model: link});
 			this.$('.link-titles-list').append(view.render().el);
-			console.log(link.toJSON().category[1]);
-			console.log(link.toJSON().url);
 		},
 
 		createLink: function () {
