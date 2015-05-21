@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BC8-Linkvoting</title>
+        <meta name="description" content="A link voting site">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+        <script src="js/libs/modernizr.js"></script>
+        <script src="js/libs/underscore.js"></script>
+        <script src="js/libs/jquery-1.9.1.js"></script>
+        <script src="js/libs/backbone.js"></script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="src/bootstrap/dist/css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <a href="#" id="logo">Link Voting</a>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" >Categories</a></li>
+            
+          </ul>
+          
+            <div id="login-sec" class="login">
+                <form id="login-form" name="loginForm">
+                <input  id="login-email" name="userid" placeholder="username" type="text" maxlength="20" tabindex="1">
+      
+                <input  id="login-pswrd" name="pswrd" placeholder="password" type="password" tabindex="1">
+              
+                <button id="login-btn" type="button" class="btn btn-primary">Login</button>
+                
+              
+
+
+
+                <div class="reset">
+                    <input type="checkbox" name="rem" id="rem-login-main" tabindex="1">
+                     <label for="rem-login-main">remember me</label>
+                     <a class="recover-password" data-toggle="modal" data-target="#pswrdModal">Recover password</a>
+                     <a data-toggle="modal" data-target="#signupModal">Create an account</a>
+                </div>
+
+
+
+            </form>
+
+        </div>
+        <div id="logout-sec" style= "display: none">
+            <P>logged-in</p>
+        </div>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="center jumbotron">
+        <h1>Welcome the to Link Voter app: Please add pages as you require team mates</h1>
+
+        <h2>
+            This is the home page for the
+            <a href="#">Link Voter App</a>
+            sample application.
+        </h2>
+        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#signupModal">Sign up now!</a>
+        </div>
+
+    </div>
+
+     <!-- Modal -->
+  <div class="modal fade" id="signupModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">want to join? create an account in seconds</h4>
+        </div>
+  
+
+        <!-- Modal content-->
+
+        <div class="modal-body">
+          <p id="message"></p>
+          <h5>CREATE A NEW ACCOUNT</h5>
+          <form name="regForm" class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-10">
+                  <input id="reg-email" type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Password:</label>
+                <div class="col-sm-10">          
+                  <input id="reg-pass" type="password" class="form-control" id="pwd" placeholder="Enter password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd"> Verify Password:</label>
+                <div class="col-sm-10">          
+                  <input type="password" class="form-control" id="vpwd" placeholder="Verify password">
+                </div>
+              </div>
+              
+              <div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">        
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button id="reg-btn" type="submit" class="btn btn-default">Signup</button>
+                </div>
+              </div>
+          </form>
+        </div>
+
+        <div style="margin: 8px">
+          <p style="font-size: 10px">We care about your privacy, and we never spam. By creating an account, you agree to reddit's User Agreement and Privacy Policy. We're proud of them, and you should read them.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+            <!-- Modal -->
+              <div class="modal fade" id="pswrdModal" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Reset Password</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container">
+                        <h2></h2>
+                        <form class="form-horizontal" role="form">
+                          <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Email:</label>
+                            <div id="rcvr-email" class="col-sm-10">
+                              <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                          </div>
+                          
+                          
+                          <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                              <button type="submit" id="reset-btn"class="btn btn-default">Reset Password</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              
+
+
+
+
+
+     <script src="src/prosper/feature.js"></script>
+  </body>
+</html>
