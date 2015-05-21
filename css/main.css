@@ -69,3 +69,12 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+.login {
+  float : right;
+  margin-top: 10px;
+
+}
+.reset a {
+  margin-left: 25px;
+}
