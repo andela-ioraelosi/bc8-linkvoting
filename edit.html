@@ -15,16 +15,16 @@
     </head>
     <body>
         <header class="navbar navbar-fixed-top navbar-inverse">
-            <button id="myButton" class="float-left submit-button" >Home</button>
-      <div class="container">
-        <a href="#" id="logo">Link Voting</a>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" >Categories</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+          <button id="myButton" class="float-left submit-button" >Home</button>
+	      <div class="container">
+	        <a href="#" id="logo">Link Voting</a>
+	        <nav>
+	          <ul class="nav navbar-nav navbar-right">
+	            <li><a href="#" >Categories</a></li>
+	          </ul>
+	        </nav>
+	      </div>
+    	</header>
 		<div class="container">
 			<h1>LINK VOTING CONFIGURATION</h1>
 			
@@ -45,6 +45,18 @@
 		</div>
 
 		<script type="text/template" class="link-titles-list-template">
+			<ul class="clearfix">
+		        
+		        <li>
+		            <span class="category"><%= category %></span><span class="arrow">&#9660;</span>
+		     
+		            <ul class="sub-menu">
+		                <li><a href="#"><span class="link-title"><%= url %></span></a></li>
+		            </ul>
+		        </li>
+		    </ul>
+
+
 			<td><span class="link-title"><%= url %></span></td>
 			<td><span class="category"><%= category %></span></td>
 			<td><button class="btn btn-warning edit-link">Edit</button> <button class="btn btn-danger delete-link">Delete</button> <button class="btn btn-success update-link" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button>
