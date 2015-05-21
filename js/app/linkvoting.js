@@ -21,12 +21,16 @@ var LinkView = Backbone.View.extend({
 	events: {
 		'click .edit-link': 'edit',
 		'click .update-link': 'update',
-		'click .delete-link': 'delete',
+		'click .delete-link': 'deleteLink',
 		'click .cancel': 'cancel'
 	},
 
 	initialize: function() {
     	this.template = _.template($('.link-titles-list-template').html());
+    	/*this.listenTo(this.model, 'add', this.edit);
+    	this.listenTo(this.model, 'add', this.update);
+    	this.listenTo(this.model, 'add', this.cancel);
+    	this.listenTo(this.model, 'add', this.deleteLink);*/
     },
 	
 	edit: function() {
@@ -42,14 +46,18 @@ var LinkView = Backbone.View.extend({
 		this.$('.category').html('<input type="text" class="form-control category-update" value="' + category + '">');
 	},
 	update: function() {
-		this.model.set('link-title', $('.link-title-update').val());
+		this.model.set('url', $('.link-title-update').val());
 		this.model.set('category', $('.category-update').val());
+		$('.edit-link').show();
+		$('.delete-link').show();
+		$('.update-link').hide();
+		$('.cancel').hide();
 
 	},
 	cancel: function() {
 		linksView.render();
 	},
-	delete: function() {
+	deleteLink: function() {
 		this.model.destroy();
 	},
 	render: function() {
