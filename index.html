@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>BC8-Linkvoting</title>
+        <meta name="description" content="A link voting site">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+        <script src="js/libs/modernizr.js"></script>
+        <script src="js/libs/underscore.js"></script>
+        <script src="js/libs/jquery-1.9.1.js"></script>
+        <script src="js/libs/backbone.js"></script>
+    </head>
+    <body>
+        <header class="navbar navbar-fixed-top navbar-inverse">
+            <button id="myButton" class="float-left submit-button" >Edit</button>
+      <div class="container">
+        <a href="#" id="logo">Link Voting</a>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" >Categories</a></li>
+            <li><a href="#">Sign Up </a></li>
+            <li><a href="#">Log in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="center jumbotron">
+        <h1>Welcome the to Link Voter app: Please add pages as you require team mates</h1>
+
+        <h2>
+            This is the home page for the
+            <a href="#">Link Voter App</a>
+            sample application.
+        </h2>
+        <a href="#" class="btn btn-lg btn-primary">Sign up now!</a>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "edit.html";
+    };
+    </script>
+  </body>
+</html>
