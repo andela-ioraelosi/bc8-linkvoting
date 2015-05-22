@@ -21,6 +21,8 @@ $(document).ready(function() {
 	var LinkView = Backbone.View.extend({
 		tagName: 'tr',
 		events: {
+			/*'click .like': 'like',
+			'click .dislike': 'dislike',*/
 			'click .edit-link': 'edit',
 			'click .update-link': 'update',
 			'click .delete-link': 'deleteLink',
